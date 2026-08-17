@@ -127,23 +127,42 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
   });
 
-  // --- Formulário de contato: validação simples + evento de conversão ---
+  // --- Formulário de contato: monta a mensagem e abre no WhatsApp da Valuà ---
   const form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", (e) => {
-      // TODO: conectar a um endpoint real de envio (Formspree, backend próprio, etc.)
-      // Por ora, o envio é apenas simulado: o evento é registrado para o GA4 e
-      // o usuário recebe uma confirmação visual, sem enviar dados a lugar nenhum.
       e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
       trackEvent("form_submit", { page_path: location.pathname, form_id: form.id });
+
+      const nome = form.nome.value.trim();
+      const email = form.email.value.trim();
+      const telefone = form.telefone.value.trim();
+      const servicoSelect = form.servico;
+      const servicoLabel = servicoSelect.value ? servicoSelect.options[servicoSelect.selectedIndex].text : "";
+      const mensagem = form.mensagem.value.trim();
+
+      let msg = `Olá, encontrei a Valuà pelo site e gostaria de solicitar um orçamento.\nNome: ${nome}`;
+      if (email) msg += `\nE-mail: ${email}`;
+      if (telefone) msg += `\nTelefone: ${telefone}`;
+      if (servicoLabel) msg += `\nServiço de interesse: ${servicoLabel}`;
+      if (mensagem) msg += `\nMensagem: ${mensagem}`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+
       let note = form.querySelector(".form-success");
       if (!note) {
         note = document.createElement("p");
-        note.className = "form-success placeholder-note";
+        note.className = "form-success";
+        note.style.marginTop = "16px";
+        note.style.color = "var(--text-soft)";
+        note.style.fontSize = "14.5px";
         form.appendChild(note);
       }
-      note.textContent = "Formulário ainda não conectado a um envio real — mensagem não foi enviada. Use o WhatsApp para contato imediato.";
-      note.style.marginTop = "16px";
+      note.textContent = "Abrindo o WhatsApp com sua mensagem pronta para envio...";
     });
   }
 });
