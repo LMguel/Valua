@@ -94,7 +94,7 @@ ul,ol{margin:0;padding:0;list-style:none;}
 }
 .hero-scrim{
   position:absolute;inset:0;z-index:0;
-  background:linear-gradient(180deg, rgba(13,25,38,.12) 0%, rgba(13,25,38,.18) 40%, rgba(13,25,38,.62) 78%, rgba(13,25,38,.82) 100%);
+  background:linear-gradient(180deg, rgba(13,25,38,.42) 0%, rgba(13,25,38,.32) 32%, rgba(13,25,38,.60) 78%, rgba(13,25,38,.82) 100%);
 }
 .hero .hero-inner{position:relative;z-index:1;width:100%;}
 
@@ -220,9 +220,15 @@ ul,ol{margin:0;padding:0;list-style:none;}
 .breadcrumbs a:hover{color:var(--text);}
 
 /* ---------- hero ---------- */
-.hero{background:var(--accent);color:#fff;padding:0 6vw;text-align:center;min-height:86vh;display:flex;align-items:center;}
-.hero .hero-inner{padding-bottom:40px;}
-.hero .kicker{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#fff;margin-bottom:26px;text-shadow:0 1px 16px rgba(13,25,38,.65);}
+.hero{background:var(--accent);color:#fff;padding:0 6vw;text-align:center;min-height:86vh;display:flex;align-items:flex-end;}
+.hero .hero-inner{padding-bottom:80px;}
+.hero .kicker{
+  position:absolute;top:56px;left:50%;transform:translateX(-50%);z-index:2;
+  font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#fff;white-space:nowrap;
+  margin-bottom:0;padding:10px 26px;border-radius:999px;
+  background:rgba(13,25,38,.45);backdrop-filter:blur(6px);
+  text-shadow:0 1px 10px rgba(13,25,38,.7);
+}
 .hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.18;max-width:920px;margin:0 auto;text-shadow:0 2px 24px rgba(13,25,38,.5);}
 .hero .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px;}
 .page-hero{background:var(--bg-alt);padding:56px 6vw 64px;position:relative;overflow:hidden;}
@@ -491,8 +497,8 @@ section{padding:104px 0;}
   section{padding:70px 0;}
   .site-header{padding:13px 5vw;}
   .hero{min-height:78vh;}
-  .hero .hero-inner{padding-bottom:28px;}
-  .hero .kicker{font-size:12px;letter-spacing:.16em;}
+  .hero .hero-inner{padding-bottom:56px;}
+  .hero .kicker{top:32px;font-size:11px;letter-spacing:.14em;padding:8px 16px;white-space:normal;max-width:82vw;text-align:center;}
   .hero .cta-row{flex-direction:column;align-items:stretch;gap:12px;}
   .hero .cta-row .btn{width:100%;justify-content:center;}
   .card-grid{grid-template-columns:1fr;}
