@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Carrossel — Demolição Valuá</title>
+<style>
+  :root{
+    --navy:#16283D;
+    --navy-soft:#4B5E71;
+    --stone-line:#8B8271;
+    --line:rgba(22,40,61,.16);
+    --line-strong:rgba(22,40,61,.34);
+    --paper:#FFFFFF;
+    --sand:#F7F5F0;
+    --display: "Century Gothic", "Avenir Next", "Futura", sans-serif;
+    --body: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#ccc;}
+
+  .slide{
+    width:1080px;
+    height:1350px;
+    position:relative;
+    overflow:hidden;
+    background:var(--paper);
+    font-family:var(--body);
+  }
+
+  /* ---------- shared chrome ---------- */
+  .logo{
+    position:absolute;
+    top:64px;
+    left:64px;
+    height:26px;
+  }
+  .counter{
+    position:absolute;
+    top:56px;
+    right:56px;
+    font-family:var(--display);
+    font-size:14px;
+    letter-spacing:.18em;
+    color:rgba(255,255,255,.8);
+    text-shadow:0 1px 4px rgba(0,0,0,.35);
+    z-index:2;
+  }
+  .logo-discreet{
+    position:absolute;
+    bottom:44px;
+    right:56px;
+    height:28px;
+    opacity:.7;
+    filter:drop-shadow(0 1px 3px rgba(255,255,255,.7));
+    z-index:2;
+  }
+  .kicker{
+    font-family:var(--display);
+    font-size:15px;
+    font-weight:400;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--stone-line);
+  }
+  .rule{
+    width:70px;
+    height:3px;
+    background:var(--navy);
+    margin:22px 0 26px;
+  }
+  .tick{
+    position:absolute;
+    width:22px;
+    height:22px;
+    border:1px solid var(--line-strong);
+  }
+  .tick.tl{top:64px;left:64px;border-right:none;border-bottom:none;}
+  .tick.tr{top:64px;right:64px;border-left:none;border-bottom:none;}
+  .tick.bl{bottom:64px;left:64px;border-right:none;border-top:none;}
+  .tick.br{bottom:64px;right:64px;border-left:none;border-top:none;}
+
+  /* ---------- SLIDE 1 — CAPA ---------- */
+  .capa{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    padding:0 90px;
+    position:relative;
+  }
+  .capa .logo-mark{
+    position:absolute;
+    top:150px;
+    left:50%;
+    transform:translateX(-50%);
+    height:60px;
+  }
+  .capa .eyebrow{
+    font-family:var(--display);
+    font-size:16px;
+    font-weight:400;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--stone-line);
+    margin-bottom:22px;
+  }
+  .capa h1{
+    font-family:var(--display);
+    font-size:118px;
+    font-weight:400;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    color:var(--navy);
+    line-height:.98;
+  }
+  .capa .rule{margin:36px 0 30px;}
+  .capa p{
+    font-size:24px;
+    line-height:1.55;
+    color:var(--navy-soft);
+    max-width:640px;
+  }
+  .capa .foot{
+    position:absolute;
+    bottom:64px;
+    left:90px;
+    right:90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--display);
+    font-size:14px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--navy-soft);
+    border-top:1px solid var(--line);
+    padding-top:22px;
+  }
+
+  /* ---------- SLIDE 2 / 4 — SOLO ---------- */
+  .solo{
+    display:flex;
+    flex-direction:column;
+  }
+  .solo .photo{
+    width:100%;
+    height:760px;
+    object-fit:cover;
+  }
+  .solo.reverse{flex-direction:column-reverse;}
+  .solo .text{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 90px;
+  }
+  .solo h2{
+    font-family:var(--display);
+    font-size:56px;
+    font-weight:400;
+    letter-spacing:0;
+    color:var(--navy);
+    line-height:1.08;
+    text-transform:uppercase;
+    max-width:820px;
+  }
+  .solo p{
+    font-size:22px;
+    line-height:1.6;
+    color:var(--navy-soft);
+    max-width:760px;
+    margin-top:22px;
+  }
+
+  /* ---------- SLIDE 3 — full photo w/ caption bar ---------- */
+  .full{
+    position:relative;
+  }
+  .full .photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .full .caption{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    background:rgba(247,245,240,.94);
+    padding:56px 90px 76px;
+    border-top:1px solid var(--line-strong);
+  }
+  .full .caption h2{
+    font-family:var(--display);
+    font-size:50px;
+    font-weight:400;
+    text-transform:uppercase;
+    color:var(--navy);
+    line-height:1.1;
+    max-width:820px;
+  }
+
+  /* ---------- SLIDE 5 — CTA FINAL ---------- */
+  .cta{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color: var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(22,40,61,.15) 0, rgba(22,40,61,.15) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(22,40,61,.15) 0, rgba(22,40,61,.15) 1px, transparent 1px, transparent 40px);
+    text-align:center;
+    padding:0 100px;
+    position:relative;
+  }
+  .cta .crosshair{
+    position:absolute;
+    width:34px;height:34px;
+  }
+  .cta .crosshair::before,.cta .crosshair::after{
+    content:"";
+    position:absolute;
+    background:var(--line-strong);
+  }
+  .cta .crosshair::before{width:100%;height:1px;top:50%;left:0;}
+  .cta .crosshair::after{height:100%;width:1px;left:50%;top:0;}
+  .cta .crosshair.c1{top:120px;left:120px;}
+  .cta .crosshair.c2{top:120px;right:120px;}
+  .cta .crosshair.c3{bottom:120px;left:120px;}
+  .cta .crosshair.c4{bottom:120px;right:120px;}
+
+  .cta .logo-mark{
+    position:absolute;
+    top:150px;
+    left:50%;
+    transform:translateX(-50%);
+    height:60px;
+  }
+  .cta .eyebrow{
+    font-family:var(--display);
+    font-size:15px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--stone-line);
+    margin-bottom:20px;
+  }
+  .cta h2{
+    font-family:var(--display);
+    font-size:64px;
+    font-weight:400;
+    text-transform:uppercase;
+    color:var(--navy);
+    line-height:1.08;
+    max-width:760px;
+  }
+  .cta .rule{margin:32px auto;}
+  .cta .sub{
+    font-size:22px;
+    line-height:1.6;
+    color:var(--navy-soft);
+    max-width:600px;
+    margin-bottom:56px;
+  }
+  .cta .whats{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    background:var(--navy);
+    color:#fff;
+    padding:22px 40px;
+    border-radius:2px;
+  }
+  .cta .whats svg{width:30px;height:30px;fill:#fff;}
+  .cta .whats span{
+    font-family:var(--display);
+    font-size:24px;
+    letter-spacing:.06em;
+  }
+  .cta .area{
+    position:absolute;
+    bottom:64px;
+    font-family:var(--display);
+    font-size:14px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--navy-soft);
+  }
+</style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — CAPA -->
+  <div class="slide capa">
+    <div class="tick tl"></div>
+    <div class="tick tr"></div>
+    <div class="tick bl"></div>
+    <div class="tick br"></div>
+    <img class="logo-mark" src="logo.png" alt="Valuá Engenharia">
+    <div class="eyebrow">Serviços Valuá</div>
+    <h1>Demolição</h1>
+    <div class="rule"></div>
+    <p>Remoção segura de estruturas comprometidas ou irregulares, com vistoria técnica antes de cada etapa e responsabilidade civil do início ao fim.</p>
+    <div class="foot">
+      <span>Angra dos Reis · Mangaratiba · Paraty</span>
+      <span>01/05</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 — SOLO -->
+  <div class="slide solo">
+    <img class="logo-discreet" src="logo.png" alt="Valuá">
+    <div class="counter">02/05</div>
+    <img class="photo" src="foto-01.jpg" alt="Vistoria da estrutura">
+    <div class="text">
+      <div class="kicker">Etapa 01</div>
+      <div class="rule"></div>
+      <h2>Vistoria técnica antes de qualquer intervenção</h2>
+      <p>Cada demolição começa com a avaliação da estrutura — o que pode ser removido com segurança e o que exige escoramento.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — FULL PHOTO + CAPTION -->
+  <div class="slide full">
+    <img class="logo-discreet" src="logo.png" alt="Valuá">
+    <div class="counter">03/05</div>
+    <img class="photo" src="foto-02.jpg" alt="Remoção controlada">
+    <div class="caption">
+      <div class="kicker">Etapa 02</div>
+      <div class="rule"></div>
+      <h2>Remoção controlada, sem risco pra estrutura vizinha</h2>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — SOLO reverse -->
+  <div class="slide solo reverse">
+    <img class="logo-discreet" src="logo.png" alt="Valuá">
+    <div class="counter">04/05</div>
+    <div class="text">
+      <div class="kicker">Etapa 03</div>
+      <div class="rule"></div>
+      <h2>Área pronta pra nova fundação</h2>
+      <p>Entulho e resíduos removidos do terreno, deixando espaço liberado e seguro pra próxima etapa da obra.</p>
+    </div>
+    <img class="photo" src="foto-03.jpg" alt="Terreno preparado">
+  </div>
+
+  <!-- SLIDE 5 — CTA FINAL -->
+  <div class="slide cta">
+    <div class="crosshair c1"></div>
+    <div class="crosshair c2"></div>
+    <div class="crosshair c3"></div>
+    <div class="crosshair c4"></div>
+    <img class="logo-mark" src="logo.png" alt="Valuá Engenharia">
+    <div class="eyebrow">Fale com a Valuá</div>
+    <h2>Precisa demolir<br>com segurança?</h2>
+    <div class="rule"></div>
+    <p class="sub">Planejamento técnico, responsabilidade civil e execução acompanhada do início ao fim.</p>
+    <div class="whats">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.486 2 2 6.486 2 12.004c0 1.87.503 3.632 1.379 5.145L2 22l4.964-1.354a9.947 9.947 0 0 0 5.04 1.358c5.518 0 10.004-4.486 10.004-10.004C22.008 6.486 17.522 2 12.004 2zm0 18.084a8.06 8.06 0 0 1-4.382-1.29l-.314-.193-3.14.857.847-3.108-.205-.32a8.052 8.052 0 0 1-1.243-4.026c0-4.463 3.63-8.093 8.093-8.093 4.463 0 8.094 3.63 8.094 8.093-.002 4.463-3.632 8.08-8.75 8.08z"/></svg>
+      <span>+55 24 98161-6105</span>
+    </div>
+    <div class="area">Angra dos Reis · Mangaratiba · Paraty</div>
+  </div>
+
+</body>
+</html>
