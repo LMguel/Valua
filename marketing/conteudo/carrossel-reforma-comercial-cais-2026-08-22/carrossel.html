@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Carrossel — Demolição Valuá</title>
+<title>Carrossel — Reforma Comercial e de Cais Valuá</title>
 <style>
   :root{
     --navy:#16283D;
@@ -28,12 +28,6 @@
   }
 
   /* ---------- shared chrome ---------- */
-  .logo{
-    position:absolute;
-    top:64px;
-    left:64px;
-    height:26px;
-  }
   .counter{
     position:absolute;
     top:56px;
@@ -43,15 +37,6 @@
     letter-spacing:.18em;
     color:rgba(255,255,255,.8);
     text-shadow:0 1px 4px rgba(0,0,0,.35);
-    z-index:2;
-  }
-  .logo-discreet{
-    position:absolute;
-    bottom:44px;
-    right:56px;
-    height:28px;
-    opacity:.7;
-    filter:drop-shadow(0 1px 3px rgba(255,255,255,.7));
     z-index:2;
   }
   .kicker{
@@ -106,7 +91,7 @@
   }
   .capa h1{
     font-family:var(--display);
-    font-size:96px;
+    font-size:88px;
     font-weight:400;
     letter-spacing:.01em;
     text-transform:uppercase;
@@ -116,7 +101,7 @@
   .capa .rule{margin:30px 0;}
   .capa .frame{
     width:900px;
-    height:420px;
+    height:675px;
     border:1px solid var(--line-strong);
     box-shadow:0 30px 60px -35px rgba(22,40,61,.35);
     overflow:hidden;
@@ -132,7 +117,7 @@
     font-size:25px;
     line-height:1.55;
     color:var(--navy-soft);
-    max-width:660px;
+    max-width:680px;
   }
   .capa .foot{
     position:absolute;
@@ -151,7 +136,40 @@
     padding-top:22px;
   }
 
-  /* ---------- SLIDE 2 / 4 — SOLO ---------- */
+  /* ---------- SLIDE 2 — FULL photo w/ caption bar ---------- */
+  .full{
+    position:relative;
+  }
+  .full .photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .full .caption{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    background:var(--sand);
+    padding:56px 90px 76px;
+    border-top:1px solid var(--line-strong);
+  }
+  .full .caption h2{
+    font-family:var(--display);
+    font-size:56px;
+    font-weight:400;
+    text-transform:uppercase;
+    color:var(--navy);
+    line-height:1.1;
+    max-width:840px;
+  }
+  .full .caption p{
+    font-size:23px;
+    line-height:1.55;
+    color:var(--navy-soft);
+    max-width:780px;
+    margin-top:18px;
+  }
+
+  /* ---------- SLIDE 3 / 4 — SOLO ---------- */
   .solo{
     display:flex;
     flex-direction:column;
@@ -185,32 +203,6 @@
     color:var(--navy-soft);
     max-width:780px;
     margin-top:24px;
-  }
-
-  /* ---------- SLIDE 3 — full photo w/ caption bar ---------- */
-  .full{
-    position:relative;
-  }
-  .full .photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-  .full .caption{
-    position:absolute;
-    left:0;right:0;bottom:0;
-    background:rgba(247,245,240,.94);
-    padding:56px 90px 76px;
-    border-top:1px solid var(--line-strong);
-  }
-  .full .caption h2{
-    font-family:var(--display);
-    font-size:58px;
-    font-weight:400;
-    text-transform:uppercase;
-    color:var(--navy);
-    line-height:1.1;
-    max-width:820px;
   }
 
   /* ---------- SLIDE 5 — CTA FINAL ---------- */
@@ -260,12 +252,12 @@
   }
   .cta h2{
     font-family:var(--display);
-    font-size:70px;
+    font-size:68px;
     font-weight:400;
     text-transform:uppercase;
     color:var(--navy);
     line-height:1.08;
-    max-width:780px;
+    max-width:800px;
   }
   .cta .rule{margin:32px auto;}
   .cta .sub{
@@ -311,52 +303,50 @@
     <div class="tick br"></div>
     <img class="logo-mark" src="logo.png" alt="Valuá Engenharia">
     <div class="eyebrow">Serviços Valuá</div>
-    <h1>Demolição</h1>
+    <h1>Transformação</h1>
     <div class="rule"></div>
-    <div class="frame"><img src="foto-02.jpg" alt="Demolição de estrutura de píer em Angra dos Reis"></div>
-    <p>Remoção segura de estruturas comprometidas ou irregulares, com vistoria técnica antes de cada etapa e responsabilidade civil do início ao fim.</p>
+    <div class="frame"><img src="foto-comercial-depois.jpg" alt="Bistrô reformado pela Valuá Engenharia"></div>
+    <p>Reforma comercial e obra de cais, com planejamento técnico e acabamento pensado pra durar — mesmo com o uso diário e a maresia da Costa Verde.</p>
     <div class="foot">
       <span>Angra dos Reis · Mangaratiba · Paraty</span>
       <span>01/05</span>
     </div>
   </div>
 
-  <!-- SLIDE 2 — SOLO -->
+  <!-- SLIDE 2 — SOLO (reveal do antes) -->
   <div class="slide solo">
-    <img class="logo-discreet" src="logo.png" alt="Valuá">
     <div class="counter">02/05</div>
-    <img class="photo" src="foto-01.jpg" alt="Vistoria da estrutura">
+    <img class="photo" src="foto-comercial-antes.jpg" alt="Espaço comercial antes da reforma">
     <div class="text">
-      <div class="kicker">Etapa 01</div>
+      <div class="kicker">Reforma comercial</div>
       <div class="rule"></div>
-      <h2>Vistoria técnica antes de qualquer intervenção</h2>
-      <p>Cada demolição começa com a avaliação da estrutura — o que pode ser removido com segurança e o que exige escoramento.</p>
+      <h2>O mesmo espaço, antes da reforma</h2>
+      <p>Estrutura bruta, sem acabamento e sem condição de receber cliente — o ponto de partida do projeto que virou o bistrô da capa.</p>
     </div>
   </div>
 
-  <!-- SLIDE 3 — FULL PHOTO + CAPTION -->
-  <div class="slide full">
-    <img class="logo-discreet" src="logo.png" alt="Valuá">
+  <!-- SLIDE 3 — SOLO (cais 01) -->
+  <div class="slide solo">
     <div class="counter">03/05</div>
-    <img class="photo" src="foto-02.jpg" alt="Remoção controlada">
-    <div class="caption">
-      <div class="kicker">Etapa 02</div>
+    <img class="photo" src="foto-cais-01.jpg" alt="Cais reformado com deck de madeira">
+    <div class="text">
+      <div class="kicker">Reforma de cais</div>
       <div class="rule"></div>
-      <h2>Remoção controlada, sem risco pra estrutura vizinha</h2>
+      <h2>Estrutura pronta pra resistir à maresia</h2>
+      <p>Deck, guarda-corpo e fixação pensados pra aguentar o uso constante e a exposição direta à água salgada, sem perder acabamento.</p>
     </div>
   </div>
 
-  <!-- SLIDE 4 — SOLO reverse -->
+  <!-- SLIDE 4 — SOLO reverse (cais 02) -->
   <div class="slide solo reverse">
-    <img class="logo-discreet" src="logo.png" alt="Valuá">
     <div class="counter">04/05</div>
     <div class="text">
-      <div class="kicker">Etapa 03</div>
+      <div class="kicker">Reforma de cais</div>
       <div class="rule"></div>
-      <h2>Estrutura removida com segurança, do início ao fim</h2>
-      <p>Cada peça retirada seguindo o que foi definido na vistoria, sem comprometer o que fica em volta — na terra ou na água.</p>
+      <h2>Acabamento técnico do início ao fim</h2>
+      <p>Da estrutura de sustentação ao piso e à iluminação — cada etapa acompanhada pra entregar uma obra segura e durável sobre a água.</p>
     </div>
-    <img class="photo" src="foto-03.jpg" alt="Remoção segura da estrutura">
+    <img class="photo" src="foto-cais-02.jpg" alt="Cais reformado sobre o mar">
   </div>
 
   <!-- SLIDE 5 — CTA FINAL -->
@@ -367,9 +357,9 @@
     <div class="crosshair c4"></div>
     <img class="logo-mark" src="logo.png" alt="Valuá Engenharia">
     <div class="eyebrow">Fale com a Valuá</div>
-    <h2>Precisa demolir<br>com segurança?</h2>
+    <h2>Precisa reformar<br>com planejamento?</h2>
     <div class="rule"></div>
-    <p class="sub">Planejamento técnico, responsabilidade civil e execução acompanhada do início ao fim.</p>
+    <p class="sub">Reforma comercial, obra de cais e muito mais — com responsabilidade técnica do início ao fim.</p>
     <div class="whats">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.486 2 2 6.486 2 12.004c0 1.87.503 3.632 1.379 5.145L2 22l4.964-1.354a9.947 9.947 0 0 0 5.04 1.358c5.518 0 10.004-4.486 10.004-10.004C22.008 6.486 17.522 2 12.004 2zm0 18.084a8.06 8.06 0 0 1-4.382-1.29l-.314-.193-3.14.857.847-3.108-.205-.32a8.052 8.052 0 0 1-1.243-4.026c0-4.463 3.63-8.093 8.093-8.093 4.463 0 8.094 3.63 8.094 8.093-.002 4.463-3.632 8.08-8.75 8.08z"/></svg>
       <span>+55 24 98161-6105</span>

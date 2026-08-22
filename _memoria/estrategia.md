@@ -6,16 +6,19 @@
 
 ## Fase
 
-Lançamento da presença digital. Site: primeira rodada de polimento visual concluída em 2026-08-21. Instagram: conta criada, ainda sem posts — próximo passo é criar os primeiros carrosséis.
+Lançamento da presença digital. Site: primeira rodada de polimento visual concluída em 2026-08-21. Instagram: conta criada, ainda sem posts — dois carrosséis já produzidos e prontos, faltando decidir a ordem de publicação e postar.
 
 ## Prioridade principal
 
 Conseguir presença digital pra ser visto — hoje a Valuá só tem clientes por boca a boca. Duas frentes:
 1. **Site — em andamento.** Feito em 2026-08-21: logo aplicado (header/rodapé/splash, versão `identidade/valua.logo.png` com fundo transparente), hero da home redesenhado (texto cortado pra kicker + h1 direto, foto do cais com overlay escuro só na base em vez do borrão claro por cima inteiro, texto branco), fotos do portfólio (`portfolio.html` e o carrossel de "Sobre") corrigidas pra `object-fit: cover` com cantos arredondados consistentes (antes tinham tarjas cor de areia por causa de `contain`). Padrão a repetir no resto do site: foto vívida + texto enxuto.
-2. **Instagram — próximo passo.** Ainda sem nenhum post. Vou abrir outro chat pra gerar os primeiros carrosséis com a skill `/carrossel`. Contexto pra esse trabalho:
-   - Fotos reais de obra já existem em `assets/img/portfolio/<categoria>/` (reforma, demolição, reparos-telhado, piscina, pequenos-reparos) — usar essas fotos reais no lugar de gerar foto por IA sempre que fizer sentido (o design-guide não tem chave de API de geração de imagem configurada ainda, e foto real da obra é mais autêntica pro tom da marca).
-   - `identidade/design-guide.md` e `_memoria/preferencias.md` já estão preenchidos com a paleta/tipografia real do site e o tom de voz — a skill `/carrossel` lê os dois antes de criar qualquer visual.
-   - Como ainda não existe post publicado, não há "última capa" pra alternar (primeira publicação livre).
+2. **Instagram — 2 carrosséis prontos, nenhum publicado ainda.**
+   - `marketing/instagram/demolicao/` — carrossel sobre demolição (5 slides), feito em 2026-08-21/22. Fotos de obra real (demolição de píer em Angra dos Reis).
+   - `marketing/instagram/reforma-comercial-cais/` — carrossel sobre reforma comercial + obra de cais (5 slides), feito em 2026-08-22, usando fotos reais em `imagens/reforma/` (antes/depois de um bistrô + cais pronto).
+   - **Decisão pendente:** qual publicar primeiro. Concluímos junto com o usuário que **demolição não deveria ser o primeiro post** de uma conta zerada — é serviço de menor recorrência e as fotos são mais "brutas". Sugestão combinada: abrir com um post institucional (quem é a Valuá, CREA, área de atuação) ou com reforma residencial (maior recorrência, mais fácil de qualquer pessoa se identificar — também é a prioridade #1 do calendário editorial em `marketing/seo/05-estrategia-conteudo.md`), e só depois publicar reforma comercial/cais e demolição.
+   - **Padrão de pasta pra próximos carrosséis:** arquivos de trabalho (`carrossel.html`, `render.js`, fotos-fonte, `legenda.md`) ficam em `marketing/conteudo/<tipo>-<tema>-<data>/`; os PNGs finais prontos pra postar vão pra `marketing/instagram/<tema>/` (caminho simplificado, sem a data).
+   - **Padrão visual do carrossel** está documentado em `identidade/design-guide.md` (seção "Padrão de carrossel Instagram") — fundo branco clean, logo centralizada e grande na capa/CTA, discreta no canto inferior direito nos slides internos, contador de página sutil sem fundo, CTA final com grade tipo prancheta de projeto. Cuidado ao usar fotos de baixa resolução (~1024x768) em layout full-bleed 1080x1350 — dá zoom/perda de qualidade; preferir o layout "solo" (foto 1080x760) ou frame contido no tamanho nativo da foto.
+   - Fotos reais de obra existem em dois lugares: `assets/img/portfolio/<categoria>/` (reforma, demolição, reparos-telhado, piscina, pequenos-reparos) e `imagens/<categoria>/` (pasta renomeada pelo usuário com nomes descritivos, ex. `imagens/reforma/cais-pronto.jpeg`, `comercial-antes.jpeg` — conferir essa pasta também ao montar carrossel novo). Preferir fotos reais a gerar por IA (sem chave de API configurada, e foto real é mais autêntica).
 
 ## O que pode esperar
 

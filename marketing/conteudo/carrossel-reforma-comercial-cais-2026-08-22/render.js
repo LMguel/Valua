@@ -10,7 +10,7 @@ const path = require('path');
   const slides = await page.$$('.slide');
   for (let i = 0; i < slides.length; i++) {
     const num = String(i + 1).padStart(2, '0');
-    const outPath = path.resolve(__dirname, '..', '..', 'instagram', 'demolicao', `slide-${num}.png`);
+    const outPath = path.resolve(__dirname, '..', '..', 'instagram', 'reforma-comercial-cais', `slide-${num}.png`);
     await slides[i].screenshot({ path: outPath });
     console.log('saved', outPath);
   }
