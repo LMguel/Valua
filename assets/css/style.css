@@ -223,14 +223,14 @@ ul,ol{margin:0;padding:0;list-style:none;}
 
 /* ---------- hero full-bleed (home) ---------- */
 .hero.hero-full{
-  height:100vh;height:100dvh;
+  min-height:100vh;min-height:100dvh;
   display:block;padding:0;text-align:left;background:var(--accent);
 }
 .hero.hero-full .hero-scrim{
   background:linear-gradient(100deg, rgba(9,17,28,.86) 0%, rgba(9,17,28,.72) 26%, rgba(9,17,28,.32) 48%, transparent 64%);
 }
 .hero.hero-full .hero-inner{
-  max-width:720px;height:100%;overflow:hidden;
+  max-width:720px;min-height:100%;
   padding:clamp(88px,15vh,150px) 6vw clamp(28px,5vh,48px);
   display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.6vh,18px);
   opacity:0;transform:translateY(22px);
