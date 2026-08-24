@@ -15,6 +15,26 @@ function trackEvent(name, params) {
   window.dataLayer.push(Object.assign({ event: name }, params || {}));
 }
 
+(function revealHeroContent() {
+  // Mostra a foto de fundo primeiro; o conteúdo (logo, headline, CTA...)
+  // só aparece com fade/subida assim que a foto termina de carregar.
+  const heroPhoto = document.querySelector(".hero.hero-full .hero-photo");
+  const heroInner = document.querySelector(".hero.hero-full .hero-inner");
+  if (!heroPhoto || !heroInner) return;
+
+  const reveal = () => heroInner.classList.add("is-visible");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    reveal();
+    return;
+  }
+  if (heroPhoto.complete && heroPhoto.naturalWidth > 0) {
+    requestAnimationFrame(reveal);
+  } else {
+    heroPhoto.addEventListener("load", reveal, { once: true });
+    heroPhoto.addEventListener("error", reveal, { once: true });
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   // --- Header flutuante sobre o hero full-bleed: fica sólido ao rolar ---
   const heroHeader = document.querySelector(".site-header.hero-overlay");
