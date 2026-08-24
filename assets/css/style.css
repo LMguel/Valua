@@ -240,7 +240,7 @@ ul,ol{margin:0;padding:0;list-style:none;}
   color:rgba(242,238,228,.85);margin:clamp(2px,0.6vh,6px) 0 0;
 }
 .hero-pill{
-  display:inline-block;width:fit-content;border-radius:2px;
+  display:inline-block;width:fit-content;max-width:100%;border-radius:2px;text-align:center;
   font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   color:#F2EEE4;background:rgba(9,17,28,.5);border:1px solid rgba(242,238,228,.3);border-left:2px solid rgba(242,238,228,.7);
   padding:clamp(8px,1.2vh,10px) 20px;margin:clamp(6px,1.2vh,12px) 0 clamp(2px,0.4vh,4px);
