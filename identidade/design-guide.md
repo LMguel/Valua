@@ -26,7 +26,7 @@ Paleta completa (`assets/css/style.css` do site): `--stone:#C9C0AC`, `--stone-li
 
 - **Títulos e destaques:** Century Gothic / Avenir Next / Futura (`var(--display)` no CSS) — caixa alta, letter-spacing largo
 
-- **Corpo, subtítulos e botões:** Georgia / Iowan Old Style / Palatino Linotype (`var(--body)` no CSS) — serifada, transmite solidez técnica
+- **Corpo e texto corrido:** Helvetica Neue / Segoe UI / Roboto / Arial (`var(--body)` no CSS) — sans-serif de sistema, 17.5px, line-height 1.6. **Mudou em 2026-08-24** (era Georgia/serifada): a serifada destoava do hero full-bleed, que é todo geométrico/sans — trocado pra manter o site consistente do início ao fim e ler mais "premium moderno". A diferenciação entre título e corpo agora vem de peso/letter-spacing/caixa (títulos em `--display` com tracking largo), não mais de serifa vs. sans.
 
 - **Peso do título:** regular/400, nunca bold pesado — a elegância vem do letter-spacing, não do peso
 
@@ -58,10 +58,22 @@ Navy geométrico + neutros de pedra/concreto. Sóbrio, técnico, sem gradientes 
 ## Logo
 
 - **Arquivo:** `identidade/valua.logo.png`
-- **Versão pra fundo escuro:** *(ainda não tem — avaliar se precisa de versão clara pro Instagram/fundos escuros)*
-- **Onde usar:** header, footer e splash de abertura do site (já aplicado), slide final do carrossel (CTA), header de propostas, slides de apresentação
-- **Tamanho sugerido:** altura 26-30px no header/footer, largura clamp(220-420px) na splash — ver `.brand-img`, `.foot-brand-img`, `.intro-logo-img` em `assets/css/style.css`
+- **Versão pra fundo escuro:** não existe como arquivo separado — usar o PNG navy original com `filter: brightness(0) invert(1)` em CSS pra virar branco sobre foto/fundo escuro (ver `.hero-logo` em `assets/css/style.css`). Funciona porque o logo é traço sólido de uma cor só; se o Moizes mandar um logo com gradiente/mais de uma cor no futuro, aí sim vai precisar de um arquivo branco separado.
+- **Onde usar:** header (aparece só depois que rola a página, ver abaixo), footer, hero da home (grande, à esquerda), slide final do carrossel (CTA), header de propostas, slides de apresentação
+- **Tamanho sugerido:** altura 26-30px no header/footer, `.hero-logo` na home usa `clamp` responsivo (~240-320px de largura) — ver `.brand-img`, `.foot-brand-img`, `.hero-logo` em `assets/css/style.css`
 - **Nota técnica:** o PNG foi gerado a partir do `valua.logo.jpg` original (removido), com fundo recortado para transparência via chroma-key + crop — o navy do traço foi preservado. Se o Moizes mandar uma versão vetorial/transparente oficial no futuro, substituir este arquivo.
+
+---
+
+## Hero da home (padrão aprovado — 2026-08-24)
+
+Referência viva: `index.html` (seção `.hero.hero-full`) + `assets/css/style.css`.
+
+- **Foto de fundo full-bleed:** ocupa 100% da primeira tela (`100dvh`), sem faixa branca no topo e sem cortar conteúdo embaixo. Imagens em `imagens/fundo/desktop.png` (paisagem, ~16:9/16:10) e `imagens/fundo/mobile.png` (retrato, ~4:5/3:4), trocadas via `<picture>`/`source media`.
+- **Header flutua transparente sobre a foto** (`.site-header.hero-overlay`) — nav e botão "Orçamento" em branco, sem fundo. Só fica sólido (com a logo do header aparecendo) depois que o usuário rola a página além da altura do hero — ver toggle de scroll em `assets/js/main.js`.
+- **Conteúdo do hero, alinhado à esquerda sobre gradiente escuro:** logo grande (clara, ver acima) → tagline em caixa alta → pill com as cidades atendidas → headline com trechos em negrito → fila de 4 ícones de diferencial (obras com qualidade, gestão e planejamento, segurança e responsabilidade, compromisso com você).
+- **Sem animação de abertura:** a antiga tela de splash com logo animando (`#intro-splash`) foi removida — o hero já entrega a marca na primeira tela, não precisa de intro separada.
+- Ao gerar um hero novo (outra página, campanha), reaproveitar essa estrutura antes de criar algo do zero.
 
 ---
 

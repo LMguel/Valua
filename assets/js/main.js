@@ -15,18 +15,19 @@ function trackEvent(name, params) {
   window.dataLayer.push(Object.assign({ event: name }, params || {}));
 }
 
-(function introSplash() {
-  const splash = document.getElementById("intro-splash");
-  if (!splash) return;
-  document.documentElement.style.overflow = "hidden";
-  setTimeout(() => {
-    splash.classList.add("is-hidden");
-    document.documentElement.style.overflow = "";
-  }, 1500);
-  splash.addEventListener("transitionend", () => splash.remove());
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
+  // --- Header flutuante sobre o hero full-bleed: fica sólido ao rolar ---
+  const heroHeader = document.querySelector(".site-header.hero-overlay");
+  if (heroHeader) {
+    const heroSection = document.querySelector(".hero.hero-full");
+    const toggleHeader = () => {
+      const threshold = heroSection ? Math.max(heroSection.offsetHeight - 140, 80) : 80;
+      heroHeader.classList.toggle("scrolled", window.scrollY > threshold);
+    };
+    toggleHeader();
+    window.addEventListener("scroll", toggleHeader, { passive: true });
+  }
+
   // --- Ano corrente no rodapé ---
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
