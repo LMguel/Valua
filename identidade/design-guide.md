@@ -58,7 +58,7 @@ Navy geométrico + neutros de pedra/concreto. Sóbrio, técnico, sem gradientes 
 ## Logo
 
 - **Arquivo:** `identidade/valua.logo.png`
-- **Versão pra fundo escuro:** não existe como arquivo separado — usar o PNG navy original com `filter: brightness(0) invert(1)` em CSS pra virar branco sobre foto/fundo escuro (ver `.hero-logo` em `assets/css/style.css`). Funciona porque o logo é traço sólido de uma cor só; se o Moizes mandar um logo com gradiente/mais de uma cor no futuro, aí sim vai precisar de um arquivo branco separado.
+- **Versão pra fundo escuro:** `identidade/valua.logo-light.png` — traço em `#F2EEE4` (cor "on-dark" do site), fundo transparente. Gerado a partir do PNG navy original (mesmo traço, só recolorido, sem perda de nitidez). Usado no hero da home (`.hero-logo`). Se o logo original for atualizado no futuro, regenerar esse arquivo junto (script rápido com Pillow: troca RGB mantendo o alpha).
 - **Onde usar:** header (aparece só depois que rola a página, ver abaixo), footer, hero da home (grande, à esquerda), slide final do carrossel (CTA), header de propostas, slides de apresentação
 - **Tamanho sugerido:** altura 26-30px no header/footer, `.hero-logo` na home usa `clamp` responsivo (~240-320px de largura) — ver `.brand-img`, `.foot-brand-img`, `.hero-logo` em `assets/css/style.css`
 - **Nota técnica:** o PNG foi gerado a partir do `valua.logo.jpg` original (removido), com fundo recortado para transparência via chroma-key + crop — o navy do traço foi preservado. Se o Moizes mandar uma versão vetorial/transparente oficial no futuro, substituir este arquivo.
