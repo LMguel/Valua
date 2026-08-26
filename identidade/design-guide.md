@@ -59,19 +59,19 @@ Navy geométrico + neutros de pedra/concreto. Sóbrio, técnico, sem gradientes 
 
 - **Arquivo:** `identidade/valua.logo.png`
 - **Versão pra fundo escuro:** `identidade/valua.logo-light.png` — traço em `#F2EEE4` (cor "on-dark" do site), fundo transparente. Gerado a partir do PNG navy original (mesmo traço, só recolorido, sem perda de nitidez). Usado no hero da home (`.hero-logo`). Se o logo original for atualizado no futuro, regenerar esse arquivo junto (script rápido com Pillow: troca RGB mantendo o alpha).
-- **Onde usar:** header (aparece só depois que rola a página, ver abaixo), footer, hero da home (grande, à esquerda), slide final do carrossel (CTA), header de propostas, slides de apresentação
+- **Onde usar:** header (aparece só depois que rola a página, ver abaixo), footer, hero da home (grande, centralizada — ver seção "Hero da home" abaixo), slide final do carrossel (CTA), header de propostas, slides de apresentação
 - **Tamanho sugerido:** altura 26-30px no header/footer, `.hero-logo` na home usa `clamp` responsivo (~240-320px de largura) — ver `.brand-img`, `.foot-brand-img`, `.hero-logo` em `assets/css/style.css`
 - **Nota técnica:** o PNG foi gerado a partir do `valua.logo.jpg` original (removido), com fundo recortado para transparência via chroma-key + crop — o navy do traço foi preservado. Se o Moizes mandar uma versão vetorial/transparente oficial no futuro, substituir este arquivo.
 
 ---
 
-## Hero da home (padrão aprovado — 2026-08-24)
+## Hero da home (padrão aprovado — 2026-08-24, alinhamento ajustado em 2026-08-26)
 
 Referência viva: `index.html` (seção `.hero.hero-full`) + `assets/css/style.css`.
 
 - **Foto de fundo full-bleed:** ocupa 100% da primeira tela (`100dvh`), sem faixa branca no topo e sem cortar conteúdo embaixo. Imagens em `imagens/fundo/desktop.png` (paisagem, ~16:9/16:10) e `imagens/fundo/mobile.png` (retrato, ~4:5/3:4), trocadas via `<picture>`/`source media`.
 - **Header flutua transparente sobre a foto** (`.site-header.hero-overlay`) — nav e botão "Orçamento" em branco, sem fundo. Só fica sólido (com a logo do header aparecendo) depois que o usuário rola a página além da altura do hero — ver toggle de scroll em `assets/js/main.js`.
-- **Conteúdo do hero, alinhado à esquerda sobre gradiente escuro:** logo grande (clara, ver acima) → tagline em caixa alta → pill com as cidades atendidas → headline com trechos em negrito → fila de 4 ícones de diferencial (obras com qualidade, gestão e planejamento, segurança e responsabilidade, compromisso com você).
+- **Conteúdo do hero, alinhamento misto sobre gradiente escuro:** logo grande (clara, ver acima) → tagline em caixa alta → pill com as cidades atendidas, esses três **centralizados**; headline em 3 linhas com trechos em negrito → botão "Solicitar orçamento" em destaque → fila de 4 ícones de diferencial (obras com qualidade, gestão e planejamento, segurança e responsabilidade, compromisso com você), esses três **alinhados à esquerda**. O bloco inteiro fica ancorado mais para a base da foto (não centralizado verticalmente).
 - **Sem animação de abertura:** a antiga tela de splash com logo animando (`#intro-splash`) foi removida — o hero já entrega a marca na primeira tela, não precisa de intro separada.
 - Ao gerar um hero novo (outra página, campanha), reaproveitar essa estrutura antes de criar algo do zero.
 
@@ -98,3 +98,5 @@ Referência viva: `marketing/conteudo/carrossel-demolicao-2026-08-21/carrossel.h
 **Slide de CTA final:** fundo branco com grade tipo prancheta de projeto — `repeating-linear-gradient` navy a 15% de opacidade, células de 40px, nas duas direções — mais 4 miras (crosshairs) finas nos cantos, sutis. Logo centralizada no topo (mesmo padrão da capa), headline, régua fina, botão navy sólido com ícone de WhatsApp (SVG inline) + telefone.
 
 **Layouts internos:** fotos reais de obra (nunca IA quando existir foto real disponível), alternando full-bleed com legenda em barra inferior e split foto/texto — sempre com contador de etapa (kicker "ETAPA 0X").
+
+**Cuidado — fotos com logo já aplicada:** algumas fotos em `imagens/reforma/` (ex: `cais-pronto.jpeg`, `cais-pronto2.jpeg`, `comercial-depois.jpeg`) já têm a marca "Valuá Engenharia" queimada na própria imagem (canto inferior direito). Nesses slides, **omitir a `.logo-discreet` do template** — senão a logo aparece duplicada (uma da foto, outra do overlay). Conferir a foto antes de aplicar o overlay padrão.

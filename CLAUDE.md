@@ -118,7 +118,8 @@ Evitar: jargão de marketing genérico, textos longos, emoji em excesso.
 
 ## Ferramentas conectadas
 
-- [ ] Instagram (conta criada, sem posts ainda)
+- [x] Google Perfil da Empresa (criado e validado em 2026-08-25)
+- [ ] Instagram (conta criada, bio/link configurados, sem posts ainda)
 - [ ] Meta Ads
 
 *(Marcar conforme for instalando os MCPs)*

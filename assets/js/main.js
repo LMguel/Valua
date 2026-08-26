@@ -148,6 +148,75 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
   });
 
+  // --- Fita de fotos (marquee): rola sozinha e também pode ser arrastada,
+  // no mouse e no touch, sem parar de rolar depois que o usuário solta ---
+  document.querySelectorAll(".marquee").forEach((wrap) => {
+    const track = wrap.querySelector(".marquee-track");
+    if (!track) return;
+
+    const SPEED = 32; // px por segundo
+    let halfWidth = 0;
+    const measure = () => {
+      halfWidth = track.scrollWidth / 2;
+    };
+    measure();
+    window.addEventListener("resize", measure);
+
+    let pos = 0; // acumulador livre; a posição visual é sempre normalizada
+    let dragging = false;
+    let hovered = false;
+    let lastTime = null;
+    let pointerId = null;
+    let startX = 0;
+    let startPos = 0;
+
+    const wrappedPos = () => {
+      if (halfWidth <= 0) return 0;
+      let w = pos % halfWidth;
+      if (w > 0) w -= halfWidth;
+      return w;
+    };
+    const apply = () => {
+      track.style.transform = `translateX(${wrappedPos()}px)`;
+    };
+
+    const tick = (t) => {
+      if (lastTime == null) lastTime = t;
+      const dt = Math.min((t - lastTime) / 1000, 0.1);
+      lastTime = t;
+      if (!dragging && !hovered) pos -= SPEED * dt;
+      apply();
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    wrap.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      dragging = true;
+      pointerId = e.pointerId;
+      startX = e.clientX;
+      startPos = pos;
+      wrap.classList.add("is-dragging");
+      wrap.setPointerCapture?.(pointerId);
+    });
+    wrap.addEventListener("pointermove", (e) => {
+      if (!dragging || e.pointerId !== pointerId) return;
+      pos = startPos + (e.clientX - startX);
+      apply();
+    });
+    const endDrag = (e) => {
+      if (!dragging || (pointerId !== null && e.pointerId !== pointerId)) return;
+      dragging = false;
+      pointerId = null;
+      wrap.classList.remove("is-dragging");
+    };
+    wrap.addEventListener("pointerup", endDrag);
+    wrap.addEventListener("pointercancel", endDrag);
+    wrap.addEventListener("mouseenter", () => (hovered = true));
+    wrap.addEventListener("mouseleave", () => (hovered = false));
+    wrap.addEventListener("dragstart", (e) => e.preventDefault());
+  });
+
   // --- Formulário de contato: monta a mensagem e abre no WhatsApp da Valuà ---
   const form = document.getElementById("contact-form");
   if (form) {
