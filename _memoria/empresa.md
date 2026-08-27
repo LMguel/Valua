@@ -10,7 +10,7 @@
 **Atende clientes:** Pessoas e comércios que precisam de reforma ou obra em Angra dos Reis, Mangaratiba e Paraty (Costa Verde fluminense). Ticket variável conforme escopo do serviço.
 **Equipe:** Moizes Cunha, engenheiro civil responsável técnico (CREA-RJ 2020106887). Equipe de execução montada por projeto, não fixa — profissionais capacitados conforme a demanda de cada obra.
 **Ferramentas:** Site próprio (em polimento visual), Google Perfil da Empresa (`valuaengenharia@gmail.com`, criado e validado em 2026-08-25), Instagram (@valua.engenharia — bio e link de WhatsApp configurados, ainda sem posts publicados — carrosséis prontos via skill `/carrossel`)
-**Principais entregas:** Reformas residenciais e comerciais, construção civil, projetos estruturais, gerenciamento de obras, consultoria técnica (laudos, vistorias, pareceres)
+**Principais entregas:** Reformas residenciais e comerciais, construção civil, projetos estruturais, gerenciamento de obras, consultoria técnica (laudos, vistorias, pareceres), pintura e revitalização de fachadas (categoria própria no portfólio desde 2026-08-26)
 
 ## Contexto adicional
 

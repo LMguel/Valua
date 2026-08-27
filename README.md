@@ -10,12 +10,12 @@ sobre.html                      Sobre a empresa
 portfolio.html                  Portfólio (imagens ilustrativas por enquanto)
 contato.html                    Contato + formulário (não conectado ainda)
 servicos/index.html             Hub de serviços
-servicos/reformas-residenciais.html
-servicos/reformas-comerciais.html
-servicos/construcao-civil.html
-servicos/projetos-estruturais.html
-servicos/gerenciamento-de-obras.html
-servicos/consultoria-tecnica.html
+servicos/pier-e-deck.html
+servicos/construcao.html
+servicos/conservacao-e-manutencao-predial.html
+servicos/demolicao.html
+servicos/projetos-e-licenciamentos.html
+servicos/pequenos-reparos.html
 assets/css/style.css            Estilos compartilhados
 assets/js/main.js               Menu, WhatsApp dinâmico, reveal on scroll, eventos GA4
 sitemap.xml / robots.txt        SEO técnico
@@ -26,7 +26,7 @@ sitemap.xml / robots.txt        SEO técnico
 - HTML semântico, um único `<h1>` por página, headings hierárquicos.
 - Meta title, meta description, canonical, Open Graph e Twitter Card únicos por página.
 - Dados estruturados (Schema.org): `GeneralContractor` na home, `BreadcrumbList` e `Service` em cada página de serviço, `FAQPage` nas páginas com FAQ visível.
-- URLs amigáveis (`/servicos/reformas-residenciais.html`, etc.).
+- URLs amigáveis (`/servicos/construcao.html`, etc.).
 - Sem JavaScript bloqueante, sem fontes externas, sem bibliotecas pesadas — pensado para bom desempenho e Core Web Vitals.
 - Acessibilidade: skip link, foco visível, labels em formulário, `aria-current`, contraste AA na paleta.
 - WhatsApp centralizado em uma única constante (`WHATSAPP_NUMBER` em `assets/js/main.js`) — todos os botões puxam desse valor.
@@ -85,4 +85,4 @@ Buscar por `TODO`, `[a inserir]`, `[a definir]` e `placeholder-note` no código.
 
 - Novas páginas de serviço seguem o mesmo padrão de `servicos/*.html` (head, breadcrumb, JSON-LD `Service` + `BreadcrumbList`, corpo com "o que é / para quem / como trabalhamos / diferenciais / etapas / FAQ").
 - Um blog pode ser adicionado em `/blog/` sem alterar a estrutura atual — o rodapé e o cabeçalho já estão isolados por página e podem receber um novo item de navegação.
-- Páginas por cidade (ex. `/servicos/reformas-residenciais-paraty.html`) podem ser criadas depois, reaproveitando o template dos serviços, quando fizer sentido para SEO local.
+- Páginas por cidade (ex. `/servicos/construcao-paraty.html`) podem ser criadas depois, reaproveitando o template dos serviços, quando fizer sentido para SEO local.

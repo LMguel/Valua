@@ -37,5 +37,13 @@
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/servicos/reformas-residenciais.html", "destination": "/servicos/construcao.html", "permanent": true },
+    { "source": "/servicos/reformas-comerciais.html", "destination": "/servicos/construcao.html", "permanent": true },
+    { "source": "/servicos/construcao-civil.html", "destination": "/servicos/construcao.html", "permanent": true },
+    { "source": "/servicos/projetos-estruturais.html", "destination": "/servicos/projetos-e-licenciamentos.html", "permanent": true },
+    { "source": "/servicos/gerenciamento-de-obras.html", "destination": "/servicos/projetos-e-licenciamentos.html", "permanent": true },
+    { "source": "/servicos/consultoria-tecnica.html", "destination": "/servicos/projetos-e-licenciamentos.html", "permanent": true }
   ]
 }
