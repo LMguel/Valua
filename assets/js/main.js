@@ -255,4 +255,82 @@ document.addEventListener("DOMContentLoaded", () => {
       note.textContent = "Abrindo o WhatsApp com sua mensagem pronta para envio...";
     });
   }
+
+  // --- Portfólio no mobile: mostra só 3 fotos por categoria, com botão "ver mais" ---
+  document.querySelectorAll(".gallery-more").forEach((btn) => {
+    const gallery = btn.previousElementSibling;
+    if (!gallery) return;
+    btn.addEventListener("click", () => {
+      const expanded = gallery.classList.toggle("expanded");
+      btn.textContent = expanded ? "Ver menos fotos" : "Ver mais fotos";
+    });
+  });
+
+  // --- Lightbox: amplia fotos de galeria/portfólio ao clicar ---
+  // Agrupa fotos do mesmo carrossel/galeria para permitir navegar com as setas.
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.innerHTML =
+    '<button type="button" class="lightbox-close" aria-label="Fechar">&times;</button>' +
+    '<button type="button" class="lightbox-prev" aria-label="Foto anterior">&lsaquo;</button>' +
+    '<img class="lightbox-img" alt="">' +
+    '<button type="button" class="lightbox-next" aria-label="Próxima foto">&rsaquo;</button>';
+  document.body.appendChild(lightbox);
+
+  const lbImg = lightbox.querySelector(".lightbox-img");
+  const lbPrev = lightbox.querySelector(".lightbox-prev");
+  const lbNext = lightbox.querySelector(".lightbox-next");
+  const lbClose = lightbox.querySelector(".lightbox-close");
+  let lbGroup = [];
+  let lbIndex = 0;
+
+  const lbShow = (i) => {
+    lbIndex = (i + lbGroup.length) % lbGroup.length;
+    const img = lbGroup[lbIndex];
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt || "";
+    const multiple = lbGroup.length > 1;
+    lbPrev.style.display = multiple ? "" : "none";
+    lbNext.style.display = multiple ? "" : "none";
+  };
+  const lbOpen = (imgs, i) => {
+    lbGroup = imgs;
+    lightbox.classList.add("open");
+    document.body.classList.add("lightbox-lock");
+    lbShow(i);
+  };
+  const lbClose_ = () => {
+    lightbox.classList.remove("open");
+    document.body.classList.remove("lightbox-lock");
+    lbImg.src = "";
+  };
+  lbPrev.addEventListener("click", () => lbShow(lbIndex - 1));
+  lbNext.addEventListener("click", () => lbShow(lbIndex + 1));
+  lbClose.addEventListener("click", lbClose_);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lbClose_();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") lbClose_();
+    if (e.key === "ArrowLeft") lbShow(lbIndex - 1);
+    if (e.key === "ArrowRight") lbShow(lbIndex + 1);
+  });
+
+  document.querySelectorAll(".media-placeholder img, .auto-carousel .slide img").forEach((img) => {
+    if (!img.alt || img.closest('[aria-hidden="true"]')) return; // pula fotos decorativas
+    img.classList.add("lightbox-trigger");
+    img.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const container = img.closest(".gallery, .auto-carousel");
+      const imgs = container
+        ? Array.from(container.querySelectorAll(".media-placeholder img, .slide img")).filter(
+            (i) => i.alt && !i.closest('[aria-hidden="true"]')
+          )
+        : [img];
+      const i = imgs.indexOf(img);
+      lbOpen(imgs, i === -1 ? 0 : i);
+    });
+  });
 });

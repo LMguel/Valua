@@ -5,12 +5,12 @@
 
 **Nome:** Valuá Engenharia
 **Negócio:** Engenharia, reformas e construção civil
-**O que faz:** Planeja e acompanha obras e reformas residenciais e comerciais com responsabilidade técnica do início ao fim — reformas residenciais e comerciais, construção civil, projetos estruturais, gerenciamento de obras, consultoria técnica. Foco atual em pequenas reformas (maior recorrência), mas também executa reforma de telhado, construção comercial, demolição e piscina.
+**O que faz:** Planeja e acompanha obras e reformas residenciais e comerciais com responsabilidade técnica do início ao fim — Píer e Deck (estaca PVC, deck e muro de pedra), Construção, Conservação e Manutenção Predial (elétrica, hidráulica, piscina, jardinagem, pintura, sistema de incêndio), Demolição, Projetos e Licenciamentos (estrutural, hidráulico, elétrico), Pequenos Reparos/marido de aluguel (infiltração, calha, caixa d'água, podas). Estrutura de serviços definida pelo Moizes em 2026-08-28. Foco atual em pequenas reformas (maior recorrência), mas também executa reforma de telhado, construção comercial, demolição e piscina.
 **Perfil:** Empresa
 **Atende clientes:** Pessoas e comércios que precisam de reforma ou obra em Angra dos Reis, Mangaratiba e Paraty (Costa Verde fluminense). Ticket variável conforme escopo do serviço.
 **Equipe:** Moizes Cunha, engenheiro civil responsável técnico (CREA-RJ 2020106887). Equipe de execução montada por projeto, não fixa — profissionais capacitados conforme a demanda de cada obra.
 **Ferramentas:** Site próprio (em polimento visual), Google Perfil da Empresa (`valuaengenharia@gmail.com`, criado e validado em 2026-08-25), Instagram (@valua.engenharia — bio e link de WhatsApp configurados, ainda sem posts publicados — carrosséis prontos via skill `/carrossel`)
-**Principais entregas:** Reformas residenciais e comerciais, construção civil, projetos estruturais, gerenciamento de obras, consultoria técnica (laudos, vistorias, pareceres), pintura e revitalização de fachadas (categoria própria no portfólio desde 2026-08-26)
+**Principais entregas:** Píer e Deck, Construção, Conservação e Manutenção Predial, Demolição, Projetos e Licenciamentos, Pequenos Reparos — pintura e revitalização de fachadas com categoria própria no portfólio desde 2026-08-26
 
 ## Contexto adicional
 
