@@ -61,6 +61,16 @@ rápido, ver `02-analise-concorrencia.md`), depois registrar domínio e configur
 de domínio/GMB/Ads deve ficar no e-mail/nome da Valuá — o usuário deste workspace entra como
 gerente/administrador, não como dono (combinado com o usuário em 2026-08-21).
 
+**Google Search Console cadastrado e validado em 2026-08-28.** Verificação por registro TXT no
+DNS do registro.br (`google-site-verification=...` em `valuaengenharia.com.br`, mesma zona onde
+já estavam o `A` e o `CNAME` do site) — propagou sem o problema de demora/divergência de conta que
+tinha acontecido com o domínio. Sitemap (`sitemap.xml`) enviado e indexação manual solicitada pra
+home, `servicos/construcao.html`, `servicos/piscina.html` e `portfolio.html`. Confirmado por busca
+nesse mesmo dia que a Valuá ainda não aparecia em nenhum resultado do Google (nem pelo nome do
+domínio, nem por termos como "reforma residencial Angra dos Reis") — esperado pra um domínio com
+1 dia de vida sem Search Console, não é sinal de problema técnico do site. Acompanhar em
+**Páginas** no Search Console nos próximos dias/semanas pra ver a indexação subir.
+
 ## Google Perfil da Empresa — criado e validado em 2026-08-25
 
 Conta `valuaengenharia@gmail.com` (já existia, senha recuperada). Perfil "Valuá Engenharia"
