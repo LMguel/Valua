@@ -18,6 +18,22 @@ Conseguir presença digital pra ser visto — hoje a Valuá só tem clientes por
    - Todas as mudanças de 26/08 (e as seguintes) já foram commitadas e deployadas — `git status` limpo. Rodadas extras de ajuste do hero depois desta memória: posição final de `.hero-brand` (topo, centralizado) e `.hero-bottom` (base, alinhado à esquerda) via `justify-content:space-between`; logo do hero com `srcset` 1x/2x (gerado via Pillow) pra ficar nítida; correção de centralização do botão "Solicitar orçamento" no hero mobile (texto em 2 linhas não ficava centralizado entre si).
    - **Site publicado em produção no Vercel**: `https://valua-engenharia.vercel.app`. **Domínio próprio `valuaengenharia.com.br` registrado e DNS propagado em 2026-08-27** — ver seção "Domínio próprio" abaixo pra detalhes e um desvio do plano original que precisa de atenção.
    - **Reestruturação de conteúdo pedida pelo Moizes — publicada em 2026-08-28** (commit `b086add`): novo texto institucional no Sobre ("Quem somos" + "Muito além de obras e serviços"), "Área de atuação"→"Região Atendida", "Como trabalhamos"→"Metodologia de trabalho" com atendimento de emergência 7 dias, dados pessoais (Moizes/Vanusa) retirados da seção "Dados da empresa" (ficou só nome/CNPJ/endereço — o CREA no rodapé foi mantido, é exigência legal), espaço reservado pra vídeos no Sobre. **Os 6 serviços foram totalmente trocados**: Píer e Deck, Construção, Conservação e Manutenção Predial, Demolição, Projetos e Licenciamentos, Pequenos Reparos — substituindo reformas residenciais/comerciais, construção civil, projetos estruturais, gerenciamento de obras e consultoria técnica (URLs antigas redirecionadas via `vercel.json`). Home ganhou headline nova, seção "Resultado real" (antes/depois de fachada) e foto do Moizes planejando com a equipe ao lado do texto de responsabilidade técnica. Botões de orçamento e fotos de serviço com bordas arredondadas. Tudo já commitado e com push feito pro GitHub (`origin/main`) — deploy automático via Vercel deve refletir em poucos minutos.
+   - **Site — trabalho de 2026-08-28 a 2026-09-01 (7 commits):** página de serviço **Piscina nova**
+     (`servicos/piscina.html`) — 7º serviço, com seção própria de "Antes e depois" (estrutura em
+     concreto → obra pronta) e FAQ; virou o destino correto do "Ver serviço" da categoria Piscina
+     no portfólio (antes apontava errado pra Conservação e Manutenção Predial). **Portfólio
+     reformulado**: cada categoria trocou o carrossel automático (1 foto girando sozinha) por uma
+     grade com todas as fotos visíveis de uma vez; no mobile mostra só 3 fotos + botão "Ver mais
+     fotos". **Lightbox** adicionado em todo o site (páginas de serviço e portfólio) — clicar em
+     qualquer foto abre ampliada, com setas pra navegar entre as fotos do mesmo grupo. Galerias das
+     páginas de serviço alargadas (escapam da coluna estreita de texto) e fotos em proporção
+     paisagem (4:3) em vez do corte quase quadrado de antes; fonte do corpo das páginas de serviço
+     aumentada (`.service-body` de 760px pra 960px de largura, parágrafos de 18px pra 19.5px).
+     **Botão de WhatsApp com cor verde própria** (`--whatsapp:#22A959`, mais discreto que o verde
+     oficial) em vez do navy padrão — só nos CTAs internos, o botão do hero da home ficou branco/
+     areia como sempre foi (tem a classe `whatsapp` também, mas foi excepcionado). Fotos maiores do
+     portfólio comprimidas (~1.85MB → ~1.22MB, redimensionadas pra 1000px de largura). Tudo já
+     commitado e deployado (`origin/main`, sem pendência de push).
 2. **Instagram — perfil configurado, 3 carrosséis prontos, nenhum publicado ainda.**
    - Perfil @valua.engenharia: bio e link de WhatsApp com mensagem pronta configurados em 2026-08-25 (link `wa.me/5524981616105` com texto de orçamento pré-preenchido, sem acentos pra evitar bug de encoding no redirecionador do Instagram).
    - `marketing/instagram/institucional/` — carrossel institucional de apresentação (6 slides: capa, quem somos, área de atuação, responsabilidade técnica/CREA, serviços, CTA), feito em 2026-08-25. **Decidido com o usuário: este é o primeiro post, e vai ficar fixado no perfil.**
@@ -31,7 +47,18 @@ Conseguir presença digital pra ser visto — hoje a Valuá só tem clientes por
 
 ## Pendências da reestruturação de serviços (2026-08-28)
 
-- **Foto da "casa Rodrigo e Guilherme"**: o Moizes disse que vai mandar depois. Até lá, a página de serviço "Construção" está usando `comercial-depois.jpeg` (Koisa Boá Bistro) como foto provisória — trocar assim que a foto chegar.
+- **Foto da "casa Rodrigo e Guilherme" — resolvida em 2026-08-28.** Fotos reais da obra chegaram
+  (`imagens/casa/`) e foram publicadas: hero e galeria de `servicos/construcao.html`, seção
+  "Construção residencial" no portfólio, e viraram a foto principal (depois) da página nova
+  `servicos/piscina.html`. Ver seção "Site — trabalho de 2026-08-28 a 2026-09-01" abaixo.
+- **Segunda obra residencial (cliente diferente) — publicada em 2026-09-01.** Fotos novas em
+  `imagens/novas/` (área de lazer, escada de madeira, sala, piscina) são de um cliente/projeto
+  diferente da casa Rodrigo e Guilherme — confirmado com o usuário antes de publicar. Distribuídas
+  nas mesmas seções (Construção residencial no portfólio e em `construcao.html`, mais uma foto na
+  categoria Piscina do portfólio e em "Trabalhos realizados" de `servicos/piscina.html`), com o
+  texto ajustado pra plural ("Casas entregues" / "Projetos entregues: obras residenciais") já que
+  a categoria agora mostra mais de uma obra. Não foi misturada na história de "Antes e depois" da
+  página de Piscina, que documenta um projeto específico.
 - **Vídeo real**: a seção "Vídeos" no Sobre é só um espaço reservado (placeholder com ícone de play), sem vídeo nenhum ainda — Moizes pediu o espaço, mas não mandou material.
 
 ## O que pode esperar
@@ -42,7 +69,7 @@ Setores como financeiro, RH e operações internas — não fazem parte do escop
 
 Pendência do logo (cobrada pelo Moizes) resolvida em 2026-08-21. Sem outro prazo formal definido ainda.
 
-## SEO — pesquisa concluída em 2026-08-21, aguardando e-mail novo do Moizes
+## SEO — pesquisa concluída em 2026-08-21
 
 Rodei os passos 1, 2, 4, 5, 7 e 8 do `/seo` (não dependem de conta) — tudo salvo em
 `marketing/seo/`. Achados principais: a Valuá não aparece em nenhuma busca hoje, mas nenhum
@@ -52,14 +79,16 @@ placeholder (`valuaengenharia.com.br`) virou domínio real em 2026-08-27 (coinci
 placeholder, então título/canonical/OG/sitemap não precisaram mudar, só os comentários TODO
 foram removidos). Falta cadastrar no Google Search Console.
 
-Passos 3 (Google Meu Negócio) e 6 (Google Ads) estão **prontos e redigidos**, só esperando o
-e-mail novo que o Moizes vai criar pra registrar domínio, GMB e Ads. Ao retomar: abrir
-`marketing/seo/03-google-meu-negocio.md` e `06-google-ads.md` e seguir o passo a passo.
+Passos 3 (Google Meu Negócio) e 6 (Google Ads) estão **prontos e redigidos** em
+`marketing/seo/03-google-meu-negocio.md` e `06-google-ads.md`. **Decisão em 2026-09-01: não vai
+ter e-mail novo — usar `valuaengenharia@gmail.com` (o mesmo já usado no Perfil da Empresa) pra
+tudo, inclusive Google Ads.** O plano original de esperar um e-mail novo do Moizes foi abandonado.
 
-Ação prioritária assim que o e-mail chegar: criar o Google Meu Negócio primeiro (maior retorno
-rápido, ver `02-analise-concorrencia.md`), depois registrar domínio e configurar Ads. Titularidade
-de domínio/GMB/Ads deve ficar no e-mail/nome da Valuá — o usuário deste workspace entra como
-gerente/administrador, não como dono (combinado com o usuário em 2026-08-21).
+Ação prioritária: configurar o Google Ads com esse e-mail (ver `02-analise-concorrencia.md` pra
+prioridade de canal). Titularidade de domínio/GMB/Ads deve ficar no e-mail/nome da Valuá — o
+usuário deste workspace entra como gerente/administrador, não como dono (combinado com o usuário
+em 2026-08-21) — mas ver desvio já registrado na seção "Domínio próprio" abaixo (domínio pago
+pelo usuário, não pela Valuá).
 
 **Google Search Console cadastrado e validado em 2026-08-28.** Verificação por registro TXT no
 DNS do registro.br (`google-site-verification=...` em `valuaengenharia.com.br`, mesma zona onde

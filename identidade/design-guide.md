@@ -18,7 +18,9 @@
 
 - **Cor proibida:** cores vibrantes/saturadas — a marca é navy + neutros de pedra, sem cor de "chamada" tipo laranja/vermelho
 
-Paleta completa (`assets/css/style.css` do site): `--stone:#C9C0AC`, `--stone-line:#8B8271`, `--line:rgba(22,40,61,.16)`, `--focus:#1E6FD9` (uso pontual, foco de formulário).
+- **Exceção — botão de WhatsApp:** `--whatsapp:#22A959` (verde discreto, não é o verde oficial vibrante do WhatsApp) só nos botões de CTA de WhatsApp do site (`.btn.whatsapp`) e no botão flutuante, desde 2026-08-28/29. Decisão do usuário: o CTA de conversão precisava se destacar dos outros botões navy da página. Não usar esse verde em carrossel/post do Instagram — a regra de "sem cor vibrante" continua valendo pra material de marketing, essa exceção é só pro botão de contato do site. O botão "Solicitar orçamento" do hero da home é a única exceção à exceção: fica branco/areia como sempre foi, mesmo tendo a classe `whatsapp`.
+
+Paleta completa (`assets/css/style.css` do site): `--stone:#C9C0AC`, `--stone-line:#8B8271`, `--line:rgba(22,40,61,.16)`, `--focus:#1E6FD9` (uso pontual, foco de formulário), `--whatsapp:#22A959` / `--whatsapp-dark:#1B8A48` (só CTA de WhatsApp do site).
 
 ---
 
