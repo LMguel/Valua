@@ -85,6 +85,18 @@ O nome da marca no site aparece estilizado como "VALU**À**" (com o À em cor `-
 
 ---
 
+## Padrão de post único Instagram (aprovado — decisão 2026-09-02)
+
+Diferente do carrossel (fundo branco, ver abaixo): no post único, a foto ocupa o quadro inteiro (full-bleed, sem margem branca), com o mesmo gradiente escuro do hero da home por cima pra garantir legibilidade — `linear-gradient(180deg, rgba(13,25,38,.42) 0%, rgba(13,25,38,.32) 32%, rgba(13,25,38,.60) 78%, rgba(13,25,38,.82) 100%)`, ver `.hero` em `assets/css/style.css:101`.
+
+**Rodapé do post (parte de baixo, sobre a área mais escura do gradiente):**
+- Logo Valuà centralizada, acima das cidades
+- Abaixo da logo: "Angra dos Reis · Mangaratiba · Paraty" centralizado — mesmo padrão do `.hero-pill` do site
+
+Reutilizar essa composição (foto cheia + gradiente hero + logo/cidades centralizados embaixo) como padrão pra post único sempre que não for carrossel.
+
+---
+
 ## Padrão de carrossel Instagram (aprovado — usar como base sempre)
 
 Referência viva: `marketing/conteudo/carrossel-demolicao-2026-08-21/carrossel.html`. Reutilizar essa estrutura (CSS + layouts) pra qualquer carrossel novo, trocando fotos e texto.
