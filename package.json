@@ -1,0 +1,15 @@
+{
+  "name": "valua",
+  "version": "1.0.0",
+  "description": "Site estático (HTML/CSS/JS puro, sem build/framework) preparado para SEO, SEO local e conversão via WhatsApp. Nenhuma biblioteca externa é carregada — tudo roda com os arquivos deste projeto.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.61.1"
+  }
+}

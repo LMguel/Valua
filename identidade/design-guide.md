@@ -99,18 +99,27 @@ Reutilizar essa composição (foto cheia + gradiente hero + logo/cidades central
 
 ## Padrão de carrossel Instagram (aprovado — usar como base sempre)
 
-Referência viva: `marketing/conteudo/carrossel-demolicao-2026-08-21/carrossel.html`. Reutilizar essa estrutura (CSS + layouts) pra qualquer carrossel novo, trocando fotos e texto.
+**Atualizado em 2026-09-04**: o carrossel deixou de ter fundo branco nos slides internos — hoje capa e slides internos usam o mesmo padrão foto-cheia do post único (ver seção acima), só o CTA final continua branco. Referência viva: qualquer `carrossel.html` em `marketing/conteudo/carrossel-*` (ex: `carrossel-demolicao-2026-08-21/`). Reutilizar essa estrutura (CSS + layouts) pra qualquer carrossel novo, trocando fotos e texto.
 
-**Fundo:** branco clean (`#FFFFFF`) em todos os slides — nunca fundo escuro. Minimalista, sem elementos decorativos além dos descritos abaixo.
+**Fundo dos slides (capa + internos):** foto inteira (full-bleed, `background-size:cover`), com gradiente escuro leve por cima — mais claro no topo/meio (`rgba(13,25,38,.05)` a `.16`), escurecendo perto da base (`.58` a `.9`) só o suficiente pra garantir contraste do texto. Nunca deixar o gradiente pesado a ponto de escurecer a foto inteira.
+
+**Título/texto sobre a foto — o "fundo sutil" que resolve contraste:**
+- Painel translúcido atrás do texto: `background: rgba(9,17,28,.4)`, padding generoso (`~38px 46px`, maior em slides com mais espaço vazio), borda fina à esquerda (`border-left: 2-3px solid rgba(242,238,228,.6)`) — nunca um bloco sólido opaco.
+- Capa: título grande (60-66px), peso fino (`font-weight:300`), branco, maiúsculo, **centralizado verticalmente** no meio do quadro (não colado no topo) — usar um wrapper com `flex:1; align-items:center` acima do rodapé.
+- Slides internos: painel ancorado na base do slide (`justify-content:flex-end`), com kicker pequeno em caixa alta (`letter-spacing` largo, cor `rgba(242,238,228,.85)`) + h2 branco fino (~48-64px, usar tamanho maior quando sobrar espaço vazio entre texto e foto, como em imagens no formato "contain") + parágrafo opcional em `rgba(255,255,255,.86)`.
+- Único slide sempre igual: **CTA final** — fundo branco com grade tipo prancheta de projeto (ver abaixo), nunca leva foto.
 
 **Logo:**
-- Slide de capa e slide de CTA final: logo centralizada horizontalmente, no topo mas não colada na borda (`top: 150px`), tamanho maior (`height: 60px`).
-- Slides internos (fotos): logo discreta no **canto inferior direito** da foto, pequena (`height: 28px`), opacidade ~0.7, com leve `drop-shadow` branco pra legibilidade sobre a foto — nunca com fundo/chip atrás.
+- Capa: logo clara (`logo-light.png`) centralizada no rodapé, acima das cidades, com borda superior fina separando do resto do slide.
+- Slides internos: logo discreta no **canto inferior direito** da foto (`height: 26-28px`), opacidade ~0.75 — **omitir quando a foto já tem a marca Valuà queimada nela** (ver aviso abaixo).
+- CTA final: logo navy centralizada no topo (`height: 60px`).
 
-**Numeração de página (canto superior direito, nos slides com foto):** sem fundo/chip. Texto branco sutil (`rgba(255,255,255,.8)`) com `text-shadow` leve pra contraste, discreto.
+**Numeração de página (canto superior direito, em todos os slides com foto):** sem fundo/chip. Texto branco sutil (`rgba(255,255,255,.8)`) com `text-shadow` leve pra contraste, discreto.
 
-**Slide de CTA final:** fundo branco com grade tipo prancheta de projeto — `repeating-linear-gradient` navy a 15% de opacidade, células de 40px, nas duas direções — mais 4 miras (crosshairs) finas nos cantos, sutis. Logo centralizada no topo (mesmo padrão da capa), headline, régua fina, botão navy sólido com ícone de WhatsApp (SVG inline) + telefone.
+**Slide de CTA final:** fundo branco com grade tipo prancheta de projeto — `repeating-linear-gradient` navy a 15% de opacidade, células de 40px, nas duas direções — mais 4 miras (crosshairs) finas nos cantos, sutis. Logo centralizada no topo, headline, régua fina, botão navy sólido com ícone de WhatsApp (SVG inline) + telefone. Esse é o único slide que mantém o padrão antigo (fundo branco).
 
-**Layouts internos:** fotos reais de obra (nunca IA quando existir foto real disponível), alternando full-bleed com legenda em barra inferior e split foto/texto — sempre com contador de etapa (kicker "ETAPA 0X").
+**Imagem que precisa aparecer inteira (ex: composição antes/depois):** usar `background-size:contain` + `background-color` navy pra letterbox, em vez de `cover` — evita cortar a composição. Ver `carrossel-pintura-fachadas-2026-08-26/carrossel.html` como referência (classe `.shot.contain`).
 
-**Cuidado — fotos com logo já aplicada:** algumas fotos em `imagens/reforma/` (ex: `cais-pronto.jpeg`, `cais-pronto2.jpeg`, `comercial-depois.jpeg`) já têm a marca "Valuá Engenharia" queimada na própria imagem (canto inferior direito). Nesses slides, **omitir a `.logo-discreet` do template** — senão a logo aparece duplicada (uma da foto, outra do overlay). Conferir a foto antes de aplicar o overlay padrão.
+**Cuidado — fotos com logo já aplicada:** algumas fotos em `imagens/reforma/` (ex: `cais-pronto.jpeg`, `cais-pronto2.jpeg`, `comercial-depois.jpeg`) já têm a marca "Valuá Engenharia" queimada na própria imagem (canto inferior direito). Nesses slides, **omitir a `.logo-discreet` do template** e, na capa, **omitir também o logo do rodapé** (deixar só as cidades) — senão a logo aparece duplicada. Conferir a foto antes de aplicar o overlay padrão.
+
+**Resolução da foto:** cuidado com fotos abaixo de ~1200px no lado menor — em full-bleed 1080x1350 o `cover` estica e perde nitidez. Preferir a versão de maior resolução disponível (ex: `imagens/<categoria>/` costuma ter os originais, enquanto `assets/img/portfolio/` tem versões comprimidas pro site).

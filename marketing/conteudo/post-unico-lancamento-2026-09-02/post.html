@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face{
+    font-family:'Century Gothic Fallback';
+    src:local('Century Gothic'),local('Avenir Next'),local('Futura');
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0E1116;}
+  .slide{
+    position:relative;
+    width:1080px;height:1350px;
+    overflow:hidden;
+    font-family:"Century Gothic","Avenir Next","Futura","Segoe UI",sans-serif;
+    background-size:cover;background-position:center;
+  }
+  .slide::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(13,25,38,.42) 0%, rgba(13,25,38,.32) 32%, rgba(13,25,38,.60) 78%, rgba(13,25,38,.92) 100%);
+  }
+  .content{
+    position:relative;z-index:1;
+    width:100%;height:100%;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:72px 64px 64px;
+  }
+  .kicker{
+    align-self:flex-start;
+    font-size:14px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+    color:#F2EEE4;
+    background:rgba(9,17,28,.5);
+    border:1px solid rgba(242,238,228,.3);
+    border-left:2px solid rgba(242,238,228,.7);
+    border-radius:2px;
+    padding:11px 20px;
+  }
+  .footer{
+    display:flex;flex-direction:column;align-items:center;
+    padding-top:32px;border-top:1px solid rgba(255,255,255,.16);
+  }
+  .footer img{height:56px;width:auto;margin-bottom:18px;}
+  .cities{
+    font-size:15px;letter-spacing:.18em;text-transform:uppercase;
+    color:#F2EEE4;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide" style="background-image:url('../../../assets/img/portfolio/construcao-residencial/construcao-residencial-03.jpg');">
+  <div class="content">
+    <div></div>
+    <div class="footer">
+      <img src="../../../identidade/valua.logo-light.png" alt="Valuà Engenharia">
+      <div class="cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" style="background-image:url('../../../assets/img/portfolio/construcao-residencial/construcao-residencial-01.jpg');">
+  <div class="content">
+    <div class="kicker">Construção Residencial</div>
+    <div class="footer">
+      <img src="../../../identidade/valua.logo-light.png" alt="Valuà Engenharia">
+      <div class="cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" style="background-image:url('../../../assets/img/portfolio/piscina/piscina-03.jpg');">
+  <div class="content">
+    <div class="kicker">Piscina</div>
+    <div class="footer">
+      <img src="../../../identidade/valua.logo-light.png" alt="Valuà Engenharia">
+      <div class="cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" style="background-image:url('../../../assets/img/portfolio/pintura-fachadas/pintura-fachadas-02.jpg');">
+  <div class="content">
+    <div class="kicker">Revitalização de Fachada</div>
+    <div class="footer">
+      <img src="../../../identidade/valua.logo-light.png" alt="Valuà Engenharia">
+      <div class="cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" style="background-image:url('../../../assets/img/portfolio/reparos-telhado/reparos-telhado-02.jpg');">
+  <div class="content">
+    <div class="kicker">Manutenção Predial</div>
+    <div class="footer">
+      <img src="../../../identidade/valua.logo-light.png" alt="Valuà Engenharia">
+      <div class="cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" style="background-image:url('../../../assets/img/portfolio/demolicao/demolicao-01.jpg');">
+  <div class="content">
+    <div class="kicker">Demolição</div>
+    <div class="footer">
+      <img src="../../../identidade/valua.logo-light.png" alt="Valuà Engenharia">
+      <div class="cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

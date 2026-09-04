@@ -64,145 +64,98 @@
   .tick.bl{bottom:64px;left:64px;border-right:none;border-top:none;}
   .tick.br{bottom:64px;right:64px;border-left:none;border-top:none;}
 
-  /* ---------- SLIDE 1 — CAPA ---------- */
+  /* ---------- SLIDE 1 — CAPA (foto full-bleed + gradiente do hero) ---------- */
   .capa{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:center;
-    padding:0 90px;
-    position:relative;
+    background-size:cover;
+    background-position:center;
   }
-  .capa .logo-mark{
-    position:absolute;
-    top:74px;
-    left:50%;
-    transform:translateX(-50%);
-    height:46px;
+  .capa::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(13,25,38,.24) 0%, rgba(13,25,38,.16) 40%, rgba(13,25,38,.44) 72%, rgba(13,25,38,.78) 100%);
   }
-  .capa .eyebrow{
+  .capa .capa-content{
+    position:relative;z-index:1;
+    width:100%;height:100%;
+    display:flex;flex-direction:column;
+    padding:72px 64px 64px;
     font-family:var(--display);
-    font-size:18px;
-    font-weight:400;
-    letter-spacing:.32em;
-    text-transform:uppercase;
-    color:var(--stone-line);
-    margin-bottom:18px;
   }
-  .capa h1{
-    font-family:var(--display);
-    font-size:88px;
-    font-weight:400;
-    letter-spacing:.01em;
-    text-transform:uppercase;
-    color:var(--navy);
-    line-height:.98;
-  }
-  .capa .rule{margin:30px 0;}
-  .capa .frame{
-    width:900px;
-    height:675px;
-    border:1px solid var(--line-strong);
-    box-shadow:0 30px 60px -35px rgba(22,40,61,.35);
-    overflow:hidden;
-    margin-bottom:32px;
-  }
-  .capa .frame img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .capa p{
-    font-size:25px;
-    line-height:1.55;
-    color:var(--navy-soft);
-    max-width:680px;
-  }
-  .capa .foot{
-    position:absolute;
-    bottom:64px;
-    left:90px;
-    right:90px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-family:var(--display);
-    font-size:15px;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--navy-soft);
-    border-top:1px solid var(--line);
-    padding-top:22px;
-  }
-
-  /* ---------- SLIDE 2 — FULL photo w/ caption bar ---------- */
-  .full{
-    position:relative;
-  }
-  .full .photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-  .full .caption{
-    position:absolute;
-    left:0;right:0;bottom:0;
-    background:var(--sand);
-    padding:56px 90px 76px;
-    border-top:1px solid var(--line-strong);
-  }
-  .full .caption h2{
-    font-family:var(--display);
-    font-size:56px;
-    font-weight:400;
-    text-transform:uppercase;
-    color:var(--navy);
-    line-height:1.1;
-    max-width:840px;
-  }
-  .full .caption p{
-    font-size:23px;
-    line-height:1.55;
-    color:var(--navy-soft);
-    max-width:780px;
-    margin-top:18px;
-  }
-
-  /* ---------- SLIDE 3 / 4 — SOLO ---------- */
-  .solo{
-    display:flex;
-    flex-direction:column;
-  }
-  .solo .photo{
-    width:100%;
-    height:760px;
-    object-fit:cover;
-  }
-  .solo.reverse{flex-direction:column-reverse;}
-  .solo .text{
+  .capa .capa-title-wrap{
     flex:1;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:0 90px;
+    align-items:center;
   }
-  .solo h2{
-    font-family:var(--display);
-    font-size:62px;
-    font-weight:400;
-    letter-spacing:0;
-    color:var(--navy);
-    line-height:1.08;
-    text-transform:uppercase;
+  .capa .service-tag{
+    font-size:60px;font-weight:300;letter-spacing:.02em;text-transform:uppercase;
+    color:#FFFFFF;
+    line-height:1.12;
+    max-width:840px;
+    text-shadow:0 4px 24px rgba(9,17,28,.45);
+    background:rgba(9,17,28,.4);
+    padding:34px 44px;
+    border-left:2px solid rgba(242,238,228,.6);
+  }
+  .capa .capa-counter{
+    position:absolute;top:56px;right:56px;
+    font-size:15px;letter-spacing:.18em;color:rgba(255,255,255,.8);
+    text-shadow:0 1px 4px rgba(0,0,0,.35);
+  }
+  /* foto já traz a logo Valuá aplicada — mostrar só as cidades embaixo, sem duplicar a marca */
+  .capa .capa-footer{
+    display:flex;flex-direction:column;align-items:center;
+    padding-top:32px;border-top:1px solid rgba(255,255,255,.16);
+  }
+  .capa .capa-cities{
+    font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:#F2EEE4;
+  }
+
+  /* ---------- SLIDES INTERNOS — foto inteira + texto sobreposto com fundo sutil ---------- */
+  .shot{
+    background-size:cover;
+    background-position:center;
+  }
+  .shot::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(13,25,38,0) 0%, rgba(13,25,38,.05) 45%, rgba(13,25,38,.62) 76%, rgba(13,25,38,.92) 100%);
+  }
+  .shot .counter{
+    position:absolute;top:56px;right:56px;
+    font-family:var(--display);font-size:15px;letter-spacing:.18em;
+    color:rgba(255,255,255,.8);
+    text-shadow:0 1px 4px rgba(0,0,0,.35);
+    z-index:2;
+  }
+  .shot .shot-content{
+    position:relative;z-index:1;
+    height:100%;
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+    padding:0 90px 96px;
+  }
+  .shot .shot-panel{
+    background:rgba(9,17,28,.4);
+    padding:38px 46px;
+    border-left:2px solid rgba(242,238,228,.6);
     max-width:860px;
   }
-  .solo p{
-    font-size:25px;
-    line-height:1.6;
-    color:var(--navy-soft);
-    max-width:780px;
-    margin-top:24px;
+  .shot .kicker{
+    font-family:var(--display);
+    font-size:16px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+    color:rgba(242,238,228,.85);
+    margin-bottom:16px;
+  }
+  .shot h2{
+    font-family:var(--display);
+    font-size:48px;font-weight:300;letter-spacing:.005em;text-transform:uppercase;
+    color:#FFFFFF;
+    line-height:1.16;
+    text-shadow:0 2px 14px rgba(9,17,28,.4);
+  }
+  .shot p{
+    font-family:var(--body);
+    font-size:22px;line-height:1.6;
+    color:rgba(255,255,255,.86);
+    margin-top:18px;
+    max-width:760px;
   }
 
   /* ---------- SLIDE 5 — CTA FINAL ---------- */
@@ -296,60 +249,40 @@
 <body>
 
   <!-- SLIDE 1 — CAPA -->
-  <div class="slide capa">
-    <div class="tick tl"></div>
-    <div class="tick tr"></div>
-    <div class="tick bl"></div>
-    <div class="tick br"></div>
-    <img class="logo-mark" src="logo.png" alt="Valuá Engenharia">
-    <div class="eyebrow">Serviços Valuá</div>
-    <h1>Transformação</h1>
-    <div class="rule"></div>
-    <div class="frame"><img src="foto-comercial-depois.jpg" alt="Bistrô reformado pela Valuá Engenharia"></div>
-    <p>Reforma comercial e obra de cais, com planejamento técnico e acabamento pensado pra durar — mesmo com o uso diário e a maresia da Costa Verde.</p>
-    <div class="foot">
-      <span>Angra dos Reis · Mangaratiba · Paraty</span>
-      <span>01/05</span>
+  <div class="slide capa" style="background-image:url('foto-01.jpg');">
+    <div class="capa-content">
+      <div class="capa-title-wrap"><div class="service-tag">Reforma Comercial e Cais</div></div>
+      <div class="capa-footer">
+        <div class="capa-cities">Angra dos Reis &middot; Mangaratiba &middot; Paraty</div>
+      </div>
+    </div>
+    <div class="capa-counter">01/04</div>
+  </div>
+
+  <!-- SLIDE 2 — SHOT (reforma comercial) -->
+  <div class="slide shot" style="background-image:url('foto-02.jpg');">
+    <div class="counter">02/04</div>
+    <div class="shot-content">
+      <div class="shot-panel">
+        <div class="kicker">Reforma comercial</div>
+        <h2>Reforma comercial pronta pra receber cliente</h2>
+        <p>Estrutura, acabamento e iluminação entregues com o padrão que o negócio precisava pra abrir.</p>
+      </div>
     </div>
   </div>
 
-  <!-- SLIDE 2 — SOLO (reveal do antes) -->
-  <div class="slide solo">
-    <div class="counter">02/05</div>
-    <img class="photo" src="foto-comercial-antes.jpg" alt="Espaço comercial antes da reforma">
-    <div class="text">
-      <div class="kicker">Reforma comercial</div>
-      <div class="rule"></div>
-      <h2>O mesmo espaço, antes da reforma</h2>
-      <p>Estrutura bruta, sem acabamento e sem condição de receber cliente — o ponto de partida do projeto que virou o bistrô da capa.</p>
+  <!-- SLIDE 3 — SHOT (cais, outro ângulo) -->
+  <div class="slide shot" style="background-image:url('foto-03.jpg');">
+    <div class="counter">03/04</div>
+    <div class="shot-content">
+      <div class="shot-panel">
+        <div class="kicker">Reforma de cais</div>
+        <h2>Estrutura pronta pra resistir à maresia</h2>
+      </div>
     </div>
   </div>
 
-  <!-- SLIDE 3 — SOLO (cais 01) -->
-  <div class="slide solo">
-    <div class="counter">03/05</div>
-    <img class="photo" src="foto-cais-01.jpg" alt="Cais reformado com deck de madeira">
-    <div class="text">
-      <div class="kicker">Reforma de cais</div>
-      <div class="rule"></div>
-      <h2>Estrutura pronta pra resistir à maresia</h2>
-      <p>Deck, guarda-corpo e fixação pensados pra aguentar o uso constante e a exposição direta à água salgada, sem perder acabamento.</p>
-    </div>
-  </div>
-
-  <!-- SLIDE 4 — SOLO reverse (cais 02) -->
-  <div class="slide solo reverse">
-    <div class="counter">04/05</div>
-    <div class="text">
-      <div class="kicker">Reforma de cais</div>
-      <div class="rule"></div>
-      <h2>Acabamento técnico do início ao fim</h2>
-      <p>Da estrutura de sustentação ao piso e à iluminação — cada etapa acompanhada pra entregar uma obra segura e durável sobre a água.</p>
-    </div>
-    <img class="photo" src="foto-cais-02.jpg" alt="Cais reformado sobre o mar">
-  </div>
-
-  <!-- SLIDE 5 — CTA FINAL -->
+  <!-- SLIDE 4 — CTA FINAL -->
   <div class="slide cta">
     <div class="crosshair c1"></div>
     <div class="crosshair c2"></div>
